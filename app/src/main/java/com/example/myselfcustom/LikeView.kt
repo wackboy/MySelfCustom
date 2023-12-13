@@ -53,10 +53,10 @@ class LikeView @JvmOverloads constructor(
     private var motionLess = currentNumber.toString()
     private var currentMotion = ""
     private var nextMotion = ""
-    private val typeArray = context.obtainStyledAttributes(attrs, R.styleable.LikeView)
+    private var nextNumberAttr = 255
 
     private val animator: ObjectAnimator by lazy {
-        val nextNumberAlphaAnimator = PropertyValuesHolder.ofInt("nextNumberAlpha", 0, typeArray.getInt(R.styleable.LikeView_nextNumberAlpha, 255))
+        val nextNumberAlphaAnimator = PropertyValuesHolder.ofInt("nextNumberAlpha", 0, nextNumberAttr)
         val offsetPercentAnimator = PropertyValuesHolder.ofFloat("offsetPercent", 0f, 1f)
         val currentNumberAlphaAnimator = PropertyValuesHolder.ofInt("currentNumberAlpha", 255, 0)
         val animator = ObjectAnimator.ofPropertyValuesHolder(
@@ -74,6 +74,12 @@ class LikeView @JvmOverloads constructor(
             )
         }
         animator
+    }
+
+    init {
+        val typeArray = context.obtainStyledAttributes(attrs, R.styleable.LikeView)
+        nextNumberAttr = typeArray.getInt(R.styleable.LikeView_nextNumberAlpha, 255)
+        typeArray.recycle()
     }
 
     override fun onDraw(canvas: Canvas) {

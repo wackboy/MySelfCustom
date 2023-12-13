@@ -4,4 +4,12 @@
         <attr name="nextNumberAlpha" format="integer" />
         <!-- 其他属性声明 -->
     </declare-styleable>
+    
+    <declare-styleable name="SlidingIndicatorBar">
+        <attr name="barHeight" format="integer"/>
+        <attr name="barColor" format="integer"/>
+        <attr name="bendingHeight" format="integer"/>
+        <attr name="bendingRatio" format="float"/>
+        <attr name="bendingDirection" format="integer"/>
+    </declare-styleable>
 </resources>
