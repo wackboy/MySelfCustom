@@ -8,6 +8,7 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.IntDef
 import kotlin.math.min
 import kotlin.properties.Delegates
 
@@ -21,18 +22,18 @@ class SlidingIndicatorBar @JvmOverloads constructor(
     private var barHeight by Delegates.notNull<Int>()
     private var barColor by Delegates.notNull<Int>()
     private var bendingHeight by Delegates.notNull<Int>()
-    private var bendingRatio by Delegates.notNull<Float>()
+    private var bendingRatio: Float
     private var bendingDirection by Delegates.notNull<Int>()
     private var barPaint: Paint
     private var circlePaint: Paint
-    private lateinit var rectF: RectF
-    private lateinit var path: Path
+    private  var rectF: RectF = RectF(0f, 0f, 0f, 0f)
+    private var path = Path()
 
     init {
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.SlidingIndicatorBar)
-        barHeight = typeArray.getInt(R.styleable.SlidingIndicatorBar_barHeight, 12)
+        barHeight = typeArray.getDimensionPixelSize(R.styleable.SlidingIndicatorBar_barHeight, 20)
         barColor = typeArray.getColor(R.styleable.SlidingIndicatorBar_barColor, Color.LTGRAY)
-        bendingHeight = typeArray.getDimensionPixelOffset(R.styleable.SlidingIndicatorBar_bendingHeight, 60)
+        bendingHeight = typeArray.getDimensionPixelSize(R.styleable.SlidingIndicatorBar_bendingHeight, 60)
         bendingRatio = typeArray.getFloat(R.styleable.SlidingIndicatorBar_bendingRatio, 0f)
         bendingDirection = typeArray.getInt(R.styleable.SlidingIndicatorBar_bendingDirection, Direction.UP)
         typeArray.recycle()
@@ -41,6 +42,7 @@ class SlidingIndicatorBar @JvmOverloads constructor(
             color = barColor
             style = Paint.Style.STROKE // 描边
             strokeWidth = barHeight.toFloat()
+            // 画笔连接处使用的样式
             strokeJoin = Paint.Join.ROUND
         }
         circlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -121,8 +123,11 @@ class SlidingIndicatorBar @JvmOverloads constructor(
 
 }
 
-
-object Direction {
-    const val UP = 1
-    const val DOWN = 0
+@Retention(AnnotationRetention.SOURCE)
+@IntDef(Direction.DOWN, Direction.UP)
+annotation class Direction {
+    companion object {
+        const val DOWN: Int = 0
+        const val UP: Int = 1
+    }
 }

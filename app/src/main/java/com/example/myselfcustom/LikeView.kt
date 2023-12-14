@@ -5,6 +5,7 @@ import android.animation.PropertyValuesHolder
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Mesh
 import android.graphics.Paint
 import android.graphics.Paint.FontMetrics
 import android.graphics.Rect
@@ -82,6 +83,12 @@ class LikeView @JvmOverloads constructor(
         typeArray.recycle()
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        val hSize = MeasureSpec.getSize(heightMeasureSpec)
+        setMeasuredDimension(width, hSize)
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         paint.alpha = 255
@@ -95,6 +102,7 @@ class LikeView @JvmOverloads constructor(
         canvas.drawRect(textRect2, paint)
 
         paint.color = Color.BLACK
+
         if (motionLess.isNotEmpty()) {
             drawText(canvas, motionLess, textRect1, 0f)
         }

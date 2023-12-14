@@ -6,9 +6,9 @@
     </declare-styleable>
     
     <declare-styleable name="SlidingIndicatorBar">
-        <attr name="barHeight" format="integer"/>
+        <attr name="barHeight" format="dimension"/>
         <attr name="barColor" format="integer"/>
-        <attr name="bendingHeight" format="integer"/>
+        <attr name="bendingHeight" format="dimension"/>
         <attr name="bendingRatio" format="float"/>
         <attr name="bendingDirection" format="integer"/>
     </declare-styleable>
