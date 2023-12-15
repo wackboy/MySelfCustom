@@ -1,5 +1,6 @@
 package com.example.myselfcustom
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity() {
             R.id.button2 -> {
                 binding.likeView.plus()
             }
+            R.id.jumpAnother -> {
+                startActivity(
+                    Intent(this, SecondActivity::class.java)
+                )
+            }
         }
     }
 
@@ -30,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.button1.setOnClickListener(clicker)
         binding.button2.setOnClickListener(clicker)
+        binding.jumpAnother.setOnClickListener(clicker)
         moveSlideBar()
     }
 

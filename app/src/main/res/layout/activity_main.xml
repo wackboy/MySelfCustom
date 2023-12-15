@@ -45,4 +45,12 @@
         app:bendingRatio="0.5"
         app:bendingDirection="1" />
 
+    <Button
+        android:id="@+id/jumpAnother"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="点击跳转到另一个Activity中"
+        />
+
 </LinearLayout>
