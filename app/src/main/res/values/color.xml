@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple">#800080</color>
+<!-- 通用颜色 -->
+<color name="white">#FFFFFF</color>
+<color name="black">#000000</color>
+<color name="transparent">#00000000</color>
+<color name="purple">#800080</color>
+
+<!-- 系统颜色 -->
+<color name="colorPrimary">#6200EE</color>
+<color name="colorPrimaryDark">#3700B3</color>
+<color name="colorAccent">#03DAC5</color>
+
+<!-- 常见文本颜色 -->
+<color name="textColorPrimary">#000000</color>
+<color name="textColorSecondary">#757575</color>
+
+<!-- 分割线颜色 -->
+<color name="dividerColor">#BDBDBD</color>
+
+<!-- 按钮颜色 -->
+<color name="buttonBackground">@color/colorPrimary</color>
+<color name="buttonText">#FFFFFF</color>
+
+<!-- 提示文本颜色 -->
+<color name="hintTextColor">#9E9E9E</color>
+
+<!-- 卡片颜色 -->
+<color name="cardBackground">#FFFFFF</color>
+
+<!-- 选择器颜色 -->
+<color name="selectorPressed">#E0E0E0</color>
+
+<!-- 进度条颜色 -->
+<color name="progressBarColor">#6200EE</color>
+
+<!-- 状态栏颜色 -->
+<color name="statusBarColor">@android:color/transparent</color>
+
+<!-- 系统通知栏文字图标颜色（浅色） -->
+<color name="lightStatusBar">@android:color/white</color>
+
+<!-- 系统通知栏文字图标颜色（深色） -->
+<color name="darkStatusBar">@android:color/black</color>
+
+<!-- ActionBar 颜色 -->
+<color name="actionBarColor">@color/colorPrimary</color>
+
+<!-- 指示器颜色 -->
+<color name="indicatorColor">#6200EE</color>
+
+<!-- 标签颜色 -->
+<color name="tagColor">#FF5722</color>
 </resources>
