@@ -13,7 +13,7 @@ class NormalAdapter(
     private val clickListener: MainRvClickListener,
 ) : RecyclerView.Adapter<BaseViewHolder<Pair<String, Class<out AppCompatActivity>>, MainRvClickListener>>() {
 
-    // todo: onCreateViewHolder和onBindingViewHolder可以收敛为1一个方法，TypeViewHolder, TypeViewAdapter
+    // todo: onCreateViewHolder和onBindingViewHolder可以收敛为一个方法，TypeViewHolder, TypeViewAdapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
         : BaseViewHolder<Pair<String, Class<out AppCompatActivity>>, MainRvClickListener> {
         val binding = ItemNormalRvBinding.inflate(LayoutInflater.from(parent.context))

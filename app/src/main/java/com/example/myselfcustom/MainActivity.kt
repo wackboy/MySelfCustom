@@ -19,8 +19,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layoutManager = LinearLayoutManager(this)
-        binding.multiActivityRv.layoutManager = layoutManager
         val adapter = NormalAdapter(arrayPairInfo, this)
+        binding.multiActivityRv.layoutManager = layoutManager
         binding.multiActivityRv.adapter = adapter
     }
 
