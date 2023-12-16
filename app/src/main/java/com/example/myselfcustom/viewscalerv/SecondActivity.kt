@@ -1,10 +1,9 @@
-package com.example.myselfcustom
+package com.example.myselfcustom.viewscalerv
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myselfcustom.databinding.ActivitySecondBinding
 import com.example.myselfcustom.utils.ScreenUtils
@@ -36,8 +35,8 @@ class SecondActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rvContent.layoutManager = contentManager
         binding.rvContent.addItemDecoration(ContentItemDecoration(this))
-        val snapHelperContent = PagerSnapHelper()
-        snapHelperContent.attachToRecyclerView(binding.rvContent)
+//        val snapHelperContent = PagerSnapHelper()
+//        snapHelperContent.attachToRecyclerView(binding.rvContent)
         initRvContentScroll()
     }
 

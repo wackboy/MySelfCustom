@@ -1,4 +1,4 @@
-package com.example.myselfcustom
+package com.example.myselfcustom.viewscalerv
 
 import android.content.Context
 import android.graphics.Color
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.chad.library.adapter4.BaseQuickAdapter
 import com.chad.library.adapter4.viewholder.QuickViewHolder
+import com.example.myselfcustom.R
 
 
 class ContentAdapter(private val result: List<String>) : BaseQuickAdapter<String, QuickViewHolder>() {

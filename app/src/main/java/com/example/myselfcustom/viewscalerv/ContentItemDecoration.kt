@@ -1,4 +1,4 @@
-package com.example.myselfcustom
+package com.example.myselfcustom.viewscalerv
 
 import android.content.Context
 import android.graphics.Rect

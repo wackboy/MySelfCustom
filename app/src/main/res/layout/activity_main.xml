@@ -7,33 +7,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/multi_activity_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="minus"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="plus"/>
-
-    <com.example.myselfcustom.LikeView
-        android:id="@+id/likeView"
-        android:layout_width="match_parent"
-        android:layout_height="295dp"
-        app:nextNumberAlpha="255" />
-
+        android:layout_height="match_parent"/>
 
     <com.example.myselfcustom.SlidingIndicatorBar
         android:id="@+id/indicator"

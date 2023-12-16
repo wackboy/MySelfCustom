@@ -1,11 +1,10 @@
-package com.example.myselfcustom
+package com.example.myselfcustom.viewlike
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Mesh
 import android.graphics.Paint
 import android.graphics.Paint.FontMetrics
 import android.graphics.Rect
@@ -13,6 +12,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.core.animation.doOnEnd
+import com.example.myselfcustom.R
 import java.lang.Integer.min
 
 class LikeView @JvmOverloads constructor(
