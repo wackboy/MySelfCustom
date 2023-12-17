@@ -36,9 +36,10 @@ class UISlideCardHelper(
 
     private fun initData(): List<CardMeta> {
         val list = mutableListOf<CardMeta>()
-        repeat(10) {
-            list.add(CardMeta(R.drawable.test))
-            list.add(CardMeta(R.drawable.img_2000x3000))
+        for (i in 0 until 10 step 2) {
+            println("Rsnfosfojfo: $i")
+            list.add(CardMeta(R.drawable.test, i + 1))
+            list.add(CardMeta(R.drawable.img_2000x3000, i + 2))
         }
         return list
     }

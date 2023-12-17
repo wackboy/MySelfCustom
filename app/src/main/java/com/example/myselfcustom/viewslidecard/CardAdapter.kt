@@ -11,22 +11,33 @@ import com.example.myselfcustom.databinding.ItemCardViewBinding
 
 class CardAdapter(
     context: Context
-): RecyclerView.Adapter<BaseViewHolder<Pair<CardMeta, Int>, Any>>() {
+): RecyclerView.Adapter<BaseViewHolder<CardMeta, Any>>() {
 
-    private var lists: List<CardMeta>? = null
+    private var lists: MutableList<CardMeta>? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Pair<CardMeta, Int>, Any> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<CardMeta, Any> {
         return SlideCardViewHolder(ItemCardViewBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<Pair<CardMeta, Int>, Any>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<CardMeta, Any>, position: Int) {
         lists ?: return
-        holder.bind(Pair(lists!![position], position), null)
+        holder.bind(lists!![position], null)
     }
 
     fun setData(lists: List<CardMeta>) {
-        this.lists = lists
+        this.lists = lists as MutableList<CardMeta>
         notifyDataSetChanged()
+    }
+
+    fun updateData(position: Int) {
+        lists ?: return
+        lists?.let {
+            val meta = it[position]
+            it.removeAt(position)
+            it.add(it.lastIndex, meta)
+            notifyDataSetChanged()
+        }
+//        notifyItemChanged(position)
     }
 
     override fun getItemCount(): Int = lists?.size ?: 0
@@ -34,11 +45,11 @@ class CardAdapter(
 }
 
 class SlideCardViewHolder(private val binding: ItemCardViewBinding)
-    : BaseViewHolder<Pair<CardMeta, Int>, Any>(binding.root) {
+    : BaseViewHolder<CardMeta, Any>(binding.root) {
 
-    override fun bind(item: Pair<CardMeta, Int>, event: Any?) {
-        binding.ivCover.setImageResource(item.first.resId)
-        binding.tvIndex.text = item.second.toString()
+    override fun bind(item: CardMeta, event: Any?) {
+        binding.ivCover.setImageResource(item.resId)
+        binding.tvIndex.text = item.index.toString()
         binding.scrollView.setOnScrollChangeListener(object : OnScrollChangeListener {
             override fun onScrollChange(
                 v: View?,

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
 class SlideCardCallBack @JvmOverloads constructor(
-    adapter: CardAdapter,
+    val adapter: CardAdapter,
     lists: List<CardMeta>,
     dragDirs: Int = 0,
     swipeDirs: Int = ItemTouchHelper.LEFT
@@ -25,8 +25,11 @@ class SlideCardCallBack @JvmOverloads constructor(
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         viewHolder.itemView.rotation = 0f
+        val position = viewHolder.layoutPosition
+        adapter.updateData(position)
     }
 
+    // 绘制拖拽过程中方法的效果
     override fun onChildDraw(
         c: Canvas,
         recyclerView: RecyclerView,
@@ -46,6 +49,10 @@ class SlideCardCallBack @JvmOverloads constructor(
         curView.pivotY = 0f
         curView.rotation = -dX / 50
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+    }
+
+    override fun isItemViewSwipeEnabled(): Boolean {
+        return super.isItemViewSwipeEnabled()
     }
 
     // 设置不生效回弹距离

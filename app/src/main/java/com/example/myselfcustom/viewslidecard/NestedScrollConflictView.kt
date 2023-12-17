@@ -16,9 +16,13 @@ class NestedScrollConflictView @JvmOverloads constructor(
     private var conflictView: RecyclerView? = null
     private var startX: Float = 0f
     private var startY: Float = 0f
+    private var flag: Boolean = false
 
+    /**
+     * 找到和当前scrollView产生滑动冲突的recyclerView
+     */
     init {
-        this.doOnPreDraw {
+        doOnPreDraw {
             var currentView: ViewParent? = parent
             while (currentView != null) {
                 if (currentView is RecyclerView) {
@@ -39,13 +43,16 @@ class NestedScrollConflictView @JvmOverloads constructor(
             MotionEvent.ACTION_MOVE -> {
                 val deltaX = abs(ev.x - startX)
                 val deltaY = abs(ev.y - startY)
-                if (deltaY > deltaX) {
+                if (deltaY > deltaX || flag) {
+                    flag = true
                     conflictView?.requestDisallowInterceptTouchEvent(true)
                 } else {
+                    flag = false
                     conflictView?.requestDisallowInterceptTouchEvent(false)
                 }
             }
-            else -> {
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                flag = false
                 conflictView?.requestDisallowInterceptTouchEvent(false)
             }
         }
