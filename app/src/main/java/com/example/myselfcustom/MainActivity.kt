@@ -8,12 +8,14 @@ import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityMainBinding
 import com.example.myselfcustom.viewlike.ThirdActivity
 import com.example.myselfcustom.viewscalerv.SecondActivity
+import com.example.myselfcustom.viewslidecard.FourthActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
 
     private val arrayPairInfo = listOf(
         Pair("放缩RV效果", SecondActivity::class.java),
-        Pair("点赞效果", ThirdActivity::class.java)
+        Pair("点赞效果", ThirdActivity::class.java),
+        Pair("探探划卡", FourthActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

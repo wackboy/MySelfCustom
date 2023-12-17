@@ -12,4 +12,5 @@
         <attr name="bendingRatio" format="float"/>
         <attr name="bendingDirection" format="integer"/>
     </declare-styleable>
+
 </resources>
