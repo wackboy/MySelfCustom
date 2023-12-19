@@ -8,14 +8,14 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.Shader
 import android.util.AttributeSet
-import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.myselfcustom.utils.dp
 
 class CustomRectAnnTextView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = 0
-): View(context, attributeSet, defStyleAttr) {
+): ConstraintLayout(context, attributeSet, defStyleAttr) {
 
     private var shaderPath = Path()
     private var rightPath = Path()
@@ -28,7 +28,7 @@ class CustomRectAnnTextView @JvmOverloads constructor(
     }
 
     init {
-
+        setWillNotDraw(false)
     }
 
     private fun initLeftPath() {

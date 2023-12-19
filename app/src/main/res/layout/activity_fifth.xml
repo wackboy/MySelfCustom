@@ -7,10 +7,21 @@
     tools:context=".viewrect.FifthActivity">
 
     <com.example.myselfcustom.viewrect.CustomRectAnnTextView
+        android:id="@+id/custom_container"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.myselfcustom.viewrect.NoScrollRecyclerView
+            android:id="@+id/custom_text_rv"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </com.example.myselfcustom.viewrect.CustomRectAnnTextView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

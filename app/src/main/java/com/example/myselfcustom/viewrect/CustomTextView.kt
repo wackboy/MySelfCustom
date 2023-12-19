@@ -36,22 +36,22 @@ class CustomTextView @JvmOverloads constructor(
     init {
         setWillNotDraw(false)
         if (attrs != null) {
-            val ta = context.obtainStyledAttributes(attrs, R.styleable.CustomRectAnnTextView)
+            val ta = context.obtainStyledAttributes(attrs, R.styleable.CustomTextView)
             try {
-                if (ta.hasValue(R.styleable.CustomRectAnnTextView_android_text)) {
-                    text = ta.getText(R.styleable.CustomRectAnnTextView_android_text)
+                if (ta.hasValue(R.styleable.CustomTextView_android_text)) {
+                    text = ta.getText(R.styleable.CustomTextView_android_text)
                 }
-                if (ta.hasValue(R.styleable.CustomRectAnnTextView_android_textColor)) {
+                if (ta.hasValue(R.styleable.CustomTextView_android_textColor)) {
                     val textColor = ta.getColor(
-                        R.styleable.CustomRectAnnTextView_android_textColor,
+                        R.styleable.CustomTextView_android_textColor,
                         Color.BLACK
                     )
                     textPaint.color = textColor
                 }
 
-                if (ta.hasValue(R.styleable.CustomRectAnnTextView_android_textSize)) {
+                if (ta.hasValue(R.styleable.CustomTextView_android_textSize)) {
                     val textSize = ta.getDimensionPixelSize(
-                        R.styleable.CustomRectAnnTextView_android_textSize,
+                        R.styleable.CustomTextView_android_textSize,
                         13.sp().roundToInt()
                     )
                     textPaint.textSize = textSize.toFloat()

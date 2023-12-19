@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.myselfcustom.viewrect.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/privileges_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="#333333"
+    android:textSize="13sp"
+    >
+
+    <TextView
+        android:id="@+id/tvAction"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:drawablePadding="3dp"
+        android:textColor="#8B5C00"
+        android:textSize="12sp"/>
+
+
+</com.example.myselfcustom.viewrect.CustomTextView>
