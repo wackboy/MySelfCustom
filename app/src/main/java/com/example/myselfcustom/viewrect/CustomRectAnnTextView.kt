@@ -20,17 +20,15 @@ class CustomRectAnnTextView @JvmOverloads constructor(
     private var shaderPath = Path()
     private var rightPath = Path()
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.LTGRAY
-        style = Paint.Style.STROKE // 描边
-        strokeWidth = 20.toFloat()
-        // 画笔连接处使用的样式
-        strokeJoin = Paint.Join.ROUND
+//        color = Color.LTGRAY
+//        style = Paint.Style.STROKE // 描边
+//        strokeWidth = 20.toFloat()
+//        // 画笔连接处使用的样式
+//        strokeJoin = Paint.Join.ROUND
     }
 
     init {
-        initLeftPath()
-        initRightPath()
-        setWillNotDraw(false)
+
     }
 
     private fun initLeftPath() {
@@ -45,7 +43,7 @@ class CustomRectAnnTextView @JvmOverloads constructor(
         // 最右边的线+三角形
         shaderPath.lineTo(leftRectWidth, (height - triangleHeight) / 2)
         shaderPath.lineTo(leftRectWidth + triangleWidth, height / 2f)
-        shaderPath.lineTo(leftRectWidth, height / 2f + triangleWidth / 2f)
+        shaderPath.lineTo(leftRectWidth, height / 2f + triangleHeight / 2f)
         // 剩下的线+圆角
         shaderPath.lineTo(leftRectWidth, height.toFloat())
         shaderPath.lineTo(radius, height.toFloat())
@@ -83,7 +81,18 @@ class CustomRectAnnTextView @JvmOverloads constructor(
         )
     }
 
+    private fun createShader2(): Shader {
+        val startColor = Color.parseColor("#FEDD83")
+        val endColor = Color.parseColor("#FFFFAA")
+        return LinearGradient(
+            0f, 0f, 106.dp(), 0f, startColor, endColor, Shader.TileMode.CLAMP
+        )
+    }
+
     override fun onDraw(canvas: Canvas) {
+        initLeftPath()
+        initRightPath()
+        paint.shader = createShader2()
         canvas.drawPath(rightPath, paint)
         val shader = createShader()
         paint.shader = shader

@@ -13,4 +13,10 @@
         <attr name="bendingDirection" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="CustomRectAnnTextView">
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+    </declare-styleable>
+
 </resources>
