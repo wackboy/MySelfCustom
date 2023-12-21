@@ -2,12 +2,13 @@ package com.example.myselfcustom.viewslidecard
 
 import android.content.Context
 import android.util.TypedValue
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myselfcustom.R
 
 class UISlideCardHelper(
-    context: Context,
+    val context: Context,
     recyclerView: RecyclerView
 ) {
     companion object {
@@ -41,6 +42,8 @@ class UISlideCardHelper(
             list.add(CardMeta(R.drawable.test, i + 1))
             list.add(CardMeta(R.drawable.img_2000x3000, i + 2))
         }
+        val meta = CardMeta(R.drawable.test, 5)
+        Toast.makeText(context, "${meta.times}", Toast.LENGTH_SHORT).show()
         return list
     }
 
