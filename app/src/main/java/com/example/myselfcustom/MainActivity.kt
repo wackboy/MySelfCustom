@@ -8,6 +8,7 @@ import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityMainBinding
 import com.example.myselfcustom.sourcecodelearn.sourceeventbus.EventBusActivity
 import com.example.myselfcustom.sourcecodelearn.sourceokhttp.OkHttpActivity
+import com.example.myselfcustom.sourcecodelearn.sourcerxjava.RxjavaLearnActivity
 import com.example.myselfcustom.viewlike.ThirdActivity
 import com.example.myselfcustom.viewrect.FifthActivity
 import com.example.myselfcustom.viewscalerv.SecondActivity
@@ -21,7 +22,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
         Pair("探探划卡", FourthActivity::class.java),
         Pair("自定义文本框", FifthActivity::class.java),
         Pair("OKHTTP", OkHttpActivity::class.java),
-        Pair("EventBus", EventBusActivity::class.java)
+        Pair("EventBus", EventBusActivity::class.java),
+        Pair("Rxjava", RxjavaLearnActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
