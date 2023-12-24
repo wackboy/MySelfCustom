@@ -2,6 +2,7 @@ package com.example.myselfcustom
 
 import android.annotation.SuppressLint
 import com.google.gson.annotations.SerializedName
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.junit.Test
@@ -119,10 +120,16 @@ class RxjavaTest {
 
         val service = retrofit.create<IpServiceGet>()
         service.fetchMsg().subscribeOn(Schedulers.io()).
-        subscribe {
-           println(it.data)
-            println("haha")
-        }
+        observeOn(AndroidSchedulers.mainThread()).
+        subscribe(
+            {
+                println("haha")
+            }, {
+                println(it.message)
+            }, {
+                println("finish")
+            }
+        )
     }
 }
 
