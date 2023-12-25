@@ -1,0 +1,2 @@
+class = com.example.myselfcustom.reflect.Business2
+method = doBusiness2

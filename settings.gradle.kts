@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "MySelfCustom"
 include(":app")
- 
+include(":myapplication")
+include(":apt-annotation")
+include(":apt-api")
+include(":apt-processor")

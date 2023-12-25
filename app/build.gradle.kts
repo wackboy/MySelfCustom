@@ -15,6 +15,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["MODULE_NAME"] = project.name
+            }
+        }
     }
 
     buildTypes {
@@ -57,6 +63,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(project(":apt-api"))
+    implementation(project(":apt-annotation"))
+    implementation(project(":apt-processor"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

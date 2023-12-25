@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.apt_annotation.AptAnnotation
+import com.example.apt_api.ApiImpl
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityMainBinding
+import com.example.myselfcustom.sourcecodelearn.apt.AptActivity
 import com.example.myselfcustom.sourcecodelearn.sourceeventbus.EventBusActivity
 import com.example.myselfcustom.sourcecodelearn.sourceokhttp.OkHttpActivity
 import com.example.myselfcustom.sourcecodelearn.sourcerxjava.RxjavaLearnActivity
@@ -14,6 +17,7 @@ import com.example.myselfcustom.viewrect.FifthActivity
 import com.example.myselfcustom.viewscalerv.SecondActivity
 import com.example.myselfcustom.viewslidecard.FourthActivity
 
+@AptAnnotation(desc = "hello ya")
 class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
 
     private val arrayPairInfo = listOf(
@@ -23,15 +27,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
         Pair("自定义文本框", FifthActivity::class.java),
         Pair("OKHTTP", OkHttpActivity::class.java),
         Pair("EventBus", EventBusActivity::class.java),
-        Pair("Rxjava", RxjavaLearnActivity::class.java)
+        Pair("Rxjava", RxjavaLearnActivity::class.java),
+        Pair("Apt", AptActivity::class.java)
     )
 
+    @AptAnnotation(desc = "happy chrismas")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layoutManager = LinearLayoutManager(this)
         val adapter = NormalAdapter(arrayPairInfo, this)
         binding.multiActivityRv.layoutManager = layoutManager
         binding.multiActivityRv.adapter = adapter
+        ApiImpl.init()
     }
 
     override fun createViewBinding() =
