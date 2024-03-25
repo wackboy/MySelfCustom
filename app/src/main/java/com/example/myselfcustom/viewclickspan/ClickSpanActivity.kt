@@ -8,7 +8,6 @@ import com.example.myselfcustom.R
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityClickspanBinding
 import com.example.myselfcustom.utils.MyLinkMovementMethod
-
 class ClickSpanActivity : BaseActivity<ActivityClickspanBinding>() {
 
 

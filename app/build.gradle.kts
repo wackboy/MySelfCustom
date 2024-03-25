@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -19,6 +20,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments["MODULE_NAME"] = project.name
+                arguments["AROUTER_MODULE_NAME"] = project.name
             }
         }
     }
@@ -48,6 +50,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -63,6 +66,10 @@ dependencies {
     implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("com.alibaba:arouter-api:1.5.2")
+    annotationProcessor("com.alibaba:arouter-compiler:1.2.2")
+    implementation("com.alibaba:fastjson:1.2.48")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
