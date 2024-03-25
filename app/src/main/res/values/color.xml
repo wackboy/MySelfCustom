@@ -6,6 +6,8 @@
 <color name="transparent">#00000000</color>
 <color name="purple">#800080</color>
 
+    <color name="white_25">#40FFFFFF</color>
+
 <!-- 系统颜色 -->
 <color name="colorPrimary">#6200EE</color>
 <color name="colorPrimaryDark">#3700B3</color>
