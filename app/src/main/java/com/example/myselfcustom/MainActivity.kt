@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.baselivedata.LiveDataDemoViewModel
 import com.example.myselfcustom.databinding.ActivityMainBinding
@@ -49,9 +50,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
         ActivityMainBinding.inflate(layoutInflater)
 
     override fun onItemClick(clazz: Class<out AppCompatActivity>) {
-        startActivity(
-            Intent(this, clazz)
-        )
+        if (clazz.simpleName == "ClickSpanActivity") {
+            ARouter.getInstance().build("/test/clickSpan").navigation()
+        } else {
+            startActivity(
+                Intent(this, clazz)
+            )
+        }
     }
 
 }

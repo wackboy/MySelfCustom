@@ -25,6 +25,7 @@ android {
         }
     }
 
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -53,7 +54,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -68,7 +69,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation("com.alibaba:arouter-api:1.5.2")
-    annotationProcessor("com.alibaba:arouter-compiler:1.2.2")
+    kapt("com.alibaba:arouter-compiler:1.2.1")
     implementation("com.alibaba:fastjson:1.2.48")
 
     testImplementation("junit:junit:4.13.2")
