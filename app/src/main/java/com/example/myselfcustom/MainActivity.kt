@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.myselfcustom.arch_retrofit_coroutine.CoroutineActivity
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.baselivedata.LiveDataDemoViewModel
 import com.example.myselfcustom.databinding.ActivityMainBinding
@@ -34,8 +35,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
         Pair("EventBus", EventBusActivity::class.java),
         Pair("Rxjava", RxjavaLearnActivity::class.java),
         Pair("Apt", AptActivity::class.java),
-        Pair("ClickSpanConflict", ClickSpanActivity::class.java)
-
+        Pair("ClickSpanConflict", ClickSpanActivity::class.java),
+        Pair("协程相关", CoroutineActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
