@@ -1,10 +1,13 @@
 package com.example.myselfcustom.arch_retrofit_coroutine
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
+import com.example.myselfcustom.utils.observeState
+import com.example.myselfcustom.utils.throttle
 
 class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
@@ -14,16 +17,19 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.coroutineBtn.setOnClickListener {
-            // 会重复多次监听
-            initVm()
-        }
+        binding.coroutineBtn.setOnClickListener(
+            View.OnClickListener {
+                initVm()
+            }.throttle()
+        )
     }
 
     private fun initVm() {
-        vm.getHomePage().observe(this) {
-            if (it.isSuccess) {
-                Toast.makeText(this, it!!.data!![0].title, Toast.LENGTH_SHORT).show()
+        vm.getHomePage().observeState(this) {
+            onSuccess = {
+                if (it?.isNotEmpty() == true) {
+                    Toast.makeText(this@CoroutineActivity, it[0].title, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

@@ -1,10 +1,13 @@
 package com.example.myselfcustom.retorfitutil
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.Dispatchers
 
 open class BaseRepository() {
+
+    val mediator = MediatorLiveData<ApiResponse<*>>()
 
     fun <T> simpleLiveData(block: suspend () -> ApiResponse<T>): LiveData<ApiResponse<T>> {
         return liveData(Dispatchers.IO) {
