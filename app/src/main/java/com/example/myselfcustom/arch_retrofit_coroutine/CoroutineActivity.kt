@@ -8,6 +8,11 @@ import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
 import com.example.myselfcustom.utils.observeState
 import com.example.myselfcustom.utils.throttle
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 
 class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
@@ -36,5 +41,33 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
     override fun createViewBinding() = ActivityCoroutineBinding.inflate(layoutInflater)
 
+}
 
+fun main() = runBlocking<Unit> {
+    val channel = Channel<String>()
+    launch {
+        channel.send("A1")
+        channel.send("A2")
+        log("A done")
+    }
+    launch {
+        channel.send("B1")
+        log("B done")
+    }
+    launch {
+        repeat(3) {
+            val x = channel.receive()
+            log(x)
+        }
+    }
+    withTimeout(1500) {
+        repeat(100) {
+            println("I'm sleeping $it...")
+            delay(100)
+        }
+    }
+}
+
+fun log(message: Any?) {
+    println("[${Thread.currentThread().name}] $message")
 }

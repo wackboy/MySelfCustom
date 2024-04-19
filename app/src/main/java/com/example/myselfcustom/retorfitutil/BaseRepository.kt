@@ -9,8 +9,10 @@ open class BaseRepository() {
 
     val mediator = MediatorLiveData<ApiResponse<*>>()
 
+    // todo 参考channel和flow的conflate特性，对于网络请求做序列化处理
     fun <T> simpleLiveData(block: suspend () -> ApiResponse<T>): LiveData<ApiResponse<T>> {
         return liveData(Dispatchers.IO) {
+            // emit(ApiResponseLoadingState)
             emit(block.invoke())
         }
     }

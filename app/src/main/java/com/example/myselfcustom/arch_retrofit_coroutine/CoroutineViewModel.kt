@@ -13,7 +13,7 @@ class CoroutineViewModel : ViewModel() {
         HomePageRepo()
     }
 
-    var titleLiveData = MutableLiveData<String>()
+    private var titleLiveData = MutableLiveData<String>()
 
     init {
         viewModelScope.launch {
@@ -22,12 +22,7 @@ class CoroutineViewModel : ViewModel() {
                 titleLiveData.postValue(ret[0].title)
             }
         }
-        homePageRepo.getBannerInfo()
-//        homePageRepo.getBannerInfo().observeForever {
-//            if (it.isSuccess) {
-//                titleLiveData.postValue(it!!.data!![0].title)
-//            }
-//        }
+//        homePageRepo.getBannerInfo()
     }
 
     fun getHomePage(): LiveData<ApiResponse<List<Banner>>> {
