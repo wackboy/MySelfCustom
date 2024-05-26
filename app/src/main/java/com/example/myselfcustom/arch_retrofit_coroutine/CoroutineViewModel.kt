@@ -14,6 +14,8 @@ class CoroutineViewModel : ViewModel() {
     }
 
     private var titleLiveData = MutableLiveData<String>()
+    private var _mockLiveData = MutableLiveData<String>("haha")
+    val mockLiveData: LiveData<String> = _mockLiveData
 
     init {
         viewModelScope.launch {
@@ -27,6 +29,10 @@ class CoroutineViewModel : ViewModel() {
 
     fun getHomePage(): LiveData<ApiResponse<List<Banner>>> {
         return homePageRepo.getBannerInfo()
+    }
+
+    fun setLiveData(i: String) {
+        _mockLiveData.value = "this is a: $i"
     }
 
 

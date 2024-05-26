@@ -3,6 +3,7 @@ package com.example.myselfcustom.coroutinetest
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
@@ -17,16 +18,22 @@ import org.junit.Test
 
 class CoroutineExceptionRelative {
 
+    private val handler = CoroutineExceptionHandler { _, exception ->
+        println("CoroutineExceptionHandler got $exception")
+    }
+
     @Test
     fun test1() {
         runBlocking {
             val job = GlobalScope.launch {
                 println("Throw exception from launch")
+                delay(1000)
+                println("I'm done")
 //                throw IndexOutOfBoundsException()
             }
             job.join()
             println("Joined failed job")
-            val deferred =GlobalScope.async {
+            val deferred = GlobalScope.async {
                 println("Throwing exception from async")
                 throw ArithmeticException()
             }
@@ -129,7 +136,7 @@ class CoroutineExceptionRelative {
                 first.join()
                 println("Cancelling the supervisor")
                 superVisor.cancel()
-//                second.join()
+                second.join()
                 println("hhha")
             }
         }
@@ -157,6 +164,54 @@ class CoroutineExceptionRelative {
 
     }
 
+    /**
+     * 异常未被捕获
+     */
+    @Test
+    fun test7() {
+        runBlocking {
+            val scope = CoroutineScope(Job())
+            scope.launch { // 需要在这里设置handler
+                launch(handler) { // 这里设置handler是捕获不到异常的
+                    throw Exception("Failed coroutine")
+                }
+            }
+        }
+    }
+
+    @Test
+    fun test8() {
+        runBlocking {
+            val scope = CoroutineScope(SupervisorJob())
+            scope.launch {
+                val deferred = async {
+                    throw AssertionError("I don't know what's wrong")
+                }
+//                try {
+//                    deferred.await()
+//                } catch (e: Exception) {
+//                    println("get your exception ${e.cause}")
+//                }
+            }
+        }
+    }
+
+    @Test
+    fun test9() {
+        runBlocking {
+            val scope = CoroutineScope(SupervisorJob())
+            scope.launch(handler) {
+                try {
+                    val deferred = async {
+                        throw AssertionError("I don't know what's wrong")
+                    }
+                    deferred.await()
+                } catch (e: Exception) {
+                   println("you yichang le")
+                }
+            }
+        }
+    }
 
 
 

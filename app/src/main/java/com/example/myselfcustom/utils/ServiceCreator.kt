@@ -3,6 +3,7 @@ package com.example.myselfcustom.utils
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.myselfcustom.retorfitutil.ApiEmptyResponse
 import com.example.myselfcustom.retorfitutil.ApiErrorResponse
 import com.example.myselfcustom.retorfitutil.ApiFailedResponse
@@ -53,3 +54,14 @@ inline fun <T> LiveData<ApiResponse<T>>.observeState(
 
 }
 
+inline fun <T> LiveData<T>.observeOnce(
+    owner: LifecycleOwner,
+    observer: Observer<T>
+)  {
+    observeForever(object : Observer<T> {
+        override fun onChanged(value: T) {
+            observer.onChanged(value)
+            removeObserver(this)
+        }
+    })
+}
