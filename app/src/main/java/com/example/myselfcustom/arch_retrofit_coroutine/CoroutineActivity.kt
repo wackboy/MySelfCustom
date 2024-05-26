@@ -1,13 +1,12 @@
 package com.example.myselfcustom.arch_retrofit_coroutine
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
-import com.example.myselfcustom.utils.observeOnce
-import com.example.myselfcustom.utils.throttle
+import com.example.myselfcustom.utils.observeState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -22,17 +21,23 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initVm()
+        initUi()
+    }
+
+    private fun initUi() {
+//        binding.coroutineBtn.setOnClickListener(
+//            View.OnClickListener {
+//            }.throttle()
+//        )
         var i = 0
-        binding.coroutineBtn.setOnClickListener(
-            View.OnClickListener {
-                initVm()
-            }.throttle()
-        )
         binding.liveDataOnce.setOnClickListener {
             i = i + 1
             vm.setLiveData(i.toString())
+            vm.homePageDataSource.getBannerInfoSequence()
         }
     }
+
 
     private fun initVm() {
 //        vm.getHomePage().observeState(this) {
@@ -48,9 +53,26 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 //                Toast.makeText(this@CoroutineActivity, it.data!![0].title, Toast.LENGTH_SHORT).show()
 //            }
 //        }
+//
+//        vm.mockLiveData.observeOnce(this) {
+//            Toast.makeText(this@CoroutineActivity, it, Toast.LENGTH_SHORT).show()
+//        }
 
-        vm.mockLiveData.observeOnce(this) {
-            Toast.makeText(this@CoroutineActivity, it, Toast.LENGTH_SHORT).show()
+        repeat(10) {
+            lifecycleScope.launch {
+                delay(100)
+                vm.homePageDataSource.getBannerInfoSequence()
+            }
+        }
+        var i = 0
+        vm.homePageDataSource.mediatorLiveData.observeState(this) {
+            onSuccess = {
+                println("i的次数：$i")
+                i += 1
+                if (it?.isNotEmpty() == true) {
+                    Toast.makeText(this@CoroutineActivity, it[0].title, Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 

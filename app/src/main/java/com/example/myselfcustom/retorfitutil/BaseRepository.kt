@@ -1,20 +1,24 @@
 package com.example.myselfcustom.retorfitutil
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.liveData
+import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-open class BaseRepository() {
+open class ScopeDataSource(private val scope: CoroutineScope) {
 
-    val mediator = MediatorLiveData<ApiResponse<*>>()
-
-    // todo 参考channel和flow的conflate特性，对于网络请求做序列化处理
     fun <T> simpleLiveData(block: suspend () -> ApiResponse<T>): LiveData<ApiResponse<T>> {
-        return liveData(Dispatchers.IO) {
-            // emit(ApiResponseLoadingState)
-            emit(block.invoke())
+        val result = MutableLiveData<ApiResponse<T>>()
+        scope.launch(Dispatchers.IO) {
+            try {
+                val response = block()
+                result.postValue(response)
+            } catch (e: Exception) {
+                result.postValue(ApiErrorResponse(e))
+            }
         }
+        return result
     }
 
     suspend fun <T> executeHttp(block: suspend () -> ApiResponse<T>) : ApiResponse<T> {

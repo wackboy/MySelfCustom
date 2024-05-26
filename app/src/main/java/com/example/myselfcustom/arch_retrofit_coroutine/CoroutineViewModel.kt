@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 
 class CoroutineViewModel : ViewModel() {
 
-    private val homePageRepo by lazy {
-        HomePageRepo()
+    val homePageDataSource by lazy {
+        HomePageDataSource(viewModelScope)
     }
 
     private var titleLiveData = MutableLiveData<String>()
@@ -19,7 +19,7 @@ class CoroutineViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            val ret = homePageRepo.getBannerInfo().value?.data
+            val ret = homePageDataSource.getBannerInfo().value?.data
             if (ret != null) {
                 titleLiveData.postValue(ret[0].title)
             }
@@ -28,7 +28,11 @@ class CoroutineViewModel : ViewModel() {
     }
 
     fun getHomePage(): LiveData<ApiResponse<List<Banner>>> {
-        return homePageRepo.getBannerInfo()
+        return homePageDataSource.getBannerInfo()
+    }
+
+    fun getSequenceHomeData() {
+
     }
 
     fun setLiveData(i: String) {
