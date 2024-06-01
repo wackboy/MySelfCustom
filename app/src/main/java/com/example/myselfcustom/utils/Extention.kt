@@ -41,3 +41,7 @@ private fun resolveDefaultReturnValue(method: Method): Any? {
         else -> throw IllegalArgumentException("throttle只用于无返回值函数")
     }
 }
+
+fun log(message: Any?) {
+    println("[${Thread.currentThread().name}] $message")
+}

@@ -3,7 +3,6 @@ package com.example.myselfcustom.arch_retrofit_coroutine
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
 import com.example.myselfcustom.utils.observeState
@@ -58,19 +57,26 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 //            Toast.makeText(this@CoroutineActivity, it, Toast.LENGTH_SHORT).show()
 //        }
 
-        repeat(10) {
-            lifecycleScope.launch {
-                delay(100)
-                vm.homePageDataSource.getBannerInfoSequence()
-            }
-        }
+//        repeat(10) {
+//            lifecycleScope.launch {
+//                delay(100)
+//                vm.homePageDataSource.getBannerInfoSequence()
+//            }
+//        }
         var i = 0
-        vm.homePageDataSource.mediatorLiveData.observeState(this) {
+//        vm.homePageDataSource.mediatorLiveData.observeState(this) {
+//            onSuccess = {
+//                println("i的次数：$i")
+//                i += 1
+//                if (it?.isNotEmpty() == true) {
+//                    Toast.makeText(this@CoroutineActivity, it[0].title, Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
+        vm.getArticleContent().observeState(this) {
             onSuccess = {
-                println("i的次数：$i")
-                i += 1
-                if (it?.isNotEmpty() == true) {
-                    Toast.makeText(this@CoroutineActivity, it[0].title, Toast.LENGTH_SHORT).show()
+                if (it != null) {
+                    Toast.makeText(this@CoroutineActivity, it.datas?.get(0)?.title ?: "hahhasdnasdaoda", Toast.LENGTH_SHORT).show()
                 }
             }
         }

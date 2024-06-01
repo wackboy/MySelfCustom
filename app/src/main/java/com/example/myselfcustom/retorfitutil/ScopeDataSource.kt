@@ -21,6 +21,14 @@ open class ScopeDataSource(private val scope: CoroutineScope) {
         return result
     }
 
+//    fun <T> simpleLiveData2(block: suspend () -> ApiResponse<T>): LiveData<ApiResponse<T>> {
+//        return liveData(Dispatchers.IO) {
+//            emit(block.invoke())
+//        }
+//    }
+
+
+
     suspend fun <T> executeHttp(block: suspend () -> ApiResponse<T>) : ApiResponse<T> {
         kotlin.runCatching {
             block.invoke()

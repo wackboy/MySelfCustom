@@ -1,4 +1,4 @@
-package com.example.myselfcustom.arch_retrofit_coroutine
+package com.example.myselfcustom.meta
 
 import com.google.gson.annotations.SerializedName
 
