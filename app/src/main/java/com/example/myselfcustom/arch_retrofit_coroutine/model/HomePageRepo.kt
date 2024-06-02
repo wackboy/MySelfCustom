@@ -1,6 +1,9 @@
-package com.example.myselfcustom.arch_retrofit_coroutine
+package com.example.myselfcustom.arch_retrofit_coroutine.model
 
 import androidx.lifecycle.LiveData
+import com.example.myselfcustom.arch_retrofit_coroutine.vm.CoroutineViewModel
+import com.example.myselfcustom.arch_retrofit_coroutine.log
+import com.example.myselfcustom.arch_retrofit_coroutine.net.IHomePage
 import com.example.myselfcustom.meta.Banner
 import com.example.myselfcustom.retorfitutil.ApiResponse
 import com.example.myselfcustom.retorfitutil.SequenceDataSource

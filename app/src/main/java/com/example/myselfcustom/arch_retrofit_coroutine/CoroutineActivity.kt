@@ -1,13 +1,18 @@
 package com.example.myselfcustom.arch_retrofit_coroutine
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.example.myselfcustom.arch_retrofit_coroutine.vm.CoroutineViewModel
 import com.example.myselfcustom.base.BaseActivity
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
-import com.example.myselfcustom.utils.observeState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
@@ -73,13 +78,28 @@ class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 //                }
 //            }
 //        }
-        vm.getArticleContent().observeState(this) {
-            onSuccess = {
-                if (it != null) {
-                    Toast.makeText(this@CoroutineActivity, it.datas?.get(0)?.title ?: "hahhasdnasdaoda", Toast.LENGTH_SHORT).show()
-                }
+
+        // 通过liveData的形式获取 在janus中不被推荐
+//        vm.getArticleContent().observeState(this) {
+//            onSuccess = {
+//                if (it != null) {
+//                    Toast.makeText(this@CoroutineActivity, it.datas?.get(0)?.title ?: "hahhasdnasdaoda", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
+
+        vm.pageNum.drop(1).onEach {
+            Log.d(TAG, "fetchArticleNum: $it" + "线程是：" + Thread.currentThread().name)
+        }.launchIn(lifecycleScope)
+
+        lifecycleScope.launch {
+            val response = vm.fetchArticleContent()
+            Log.d(TAG, "fetchArticleContent回调当前的线程是：" + Thread.currentThread().name)
+            if (response.isSuccess) {
+                Toast.makeText(this@CoroutineActivity, response.data?.datas?.get(0)?.title ?: "hahhasdnasdaoda", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     override fun createViewBinding() = ActivityCoroutineBinding.inflate(layoutInflater)

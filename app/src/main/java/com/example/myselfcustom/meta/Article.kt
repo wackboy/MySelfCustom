@@ -1,7 +1,5 @@
 package com.example.myselfcustom.meta
 
-import java.util.Date
-
 class Article {
 }
 
@@ -33,8 +31,8 @@ data class Datas (
     var host: String? = null,
     var id: Int = 0,
     var link: String? = null,
-    var niceDate: Date? = null,
-    var niceShareDate: Date? = null,
+    var niceDate: String? = null,
+    var niceShareDate: String? = null,
     var origin: String? = null,
     var prefix: String? = null,
     var projectLink: String? = null,
@@ -45,7 +43,7 @@ data class Datas (
     var shareUser: String? = null,
     var superChapterId: Int = 0,
     var superChapterName: String? = null,
-    var tags: List<String>? = null,
+    var tags: List<Tag>? = null,
     var title: String? = null,
     var type: Int = 0,
     var userId: Long = 0,
@@ -66,4 +64,9 @@ data class Articles(
     var pageCount: Int = 0,
     var size: Int = 0,
     var total: Int = 0,
+)
+
+data class Tag(
+    val name: String,
+    val url: String
 )

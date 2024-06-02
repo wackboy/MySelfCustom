@@ -1,4 +1,4 @@
-package com.example.myselfcustom.arch_retrofit_coroutine
+package com.example.myselfcustom.arch_retrofit_coroutine.net
 
 import com.example.myselfcustom.meta.Articles
 import com.example.myselfcustom.meta.Banner
@@ -15,6 +15,6 @@ interface IHomePage {
     suspend fun getArticle(@Path("index") index: Int): ApiResponse<Articles>
 
     @GET("article/list/{index}/json")
-    suspend fun getArticleFlow(@Path("index") index: Int): ApiResponse<Articles>
+    suspend fun fetchArticleByIndex(@Path("index") index: Int): ApiResponse<Articles>
 
 }
