@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.customview.viewlike.ThirdActivity">
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/button1"
@@ -19,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="plus"/>
 
-    <com.example.myselfcustom.viewlike.LikeView
+    <com.example.myselfcustom.ui.customview.viewlike.LikeView
         android:id="@+id/likeView"
         android:layout_width="match_parent"
         android:layout_height="295dp"

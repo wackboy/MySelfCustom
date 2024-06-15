@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    tools:context=".ui.customview.viewslidecard.FourthActivity">
+    tools:context=".ui.customview.viewslidecard.FourthFragment">
 
     <TextView
         android:layout_width="match_parent"

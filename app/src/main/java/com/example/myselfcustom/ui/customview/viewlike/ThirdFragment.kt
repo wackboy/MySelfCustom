@@ -2,11 +2,11 @@ package com.example.myselfcustom.ui.customview.viewlike
 
 import android.os.Bundle
 import android.view.View
+import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.R
-import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityThirdBinding
 
-class ThirdActivity : BaseActivity<ActivityThirdBinding>() {
+class ThirdFragment : BaseFragment<ActivityThirdBinding>() {
 
     private val clicker = View.OnClickListener {
         when (it.id) {
@@ -18,6 +18,7 @@ class ThirdActivity : BaseActivity<ActivityThirdBinding>() {
             }
         }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

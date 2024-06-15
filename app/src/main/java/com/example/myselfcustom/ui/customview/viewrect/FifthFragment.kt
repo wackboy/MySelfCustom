@@ -1,10 +1,10 @@
 package com.example.myselfcustom.ui.customview.viewrect
 
 import android.os.Bundle
-import com.example.myselfcustom.BaseActivity
+import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.databinding.ActivityFifthBinding
 
-class FifthActivity : BaseActivity<ActivityFifthBinding>() {
+class FifthFragment : BaseFragment<ActivityFifthBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

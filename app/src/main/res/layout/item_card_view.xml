@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.example.myselfcustom.viewslidecard.NestedScrollConflictView
+            <com.example.myselfcustom.ui.customview.viewslidecard.NestedScrollConflictView
                 android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -85,7 +85,7 @@
 
                 </LinearLayout>
 
-            </com.example.myselfcustom.viewslidecard.NestedScrollConflictView>
+            </com.example.myselfcustom.ui.customview.viewslidecard.NestedScrollConflictView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="6dp"

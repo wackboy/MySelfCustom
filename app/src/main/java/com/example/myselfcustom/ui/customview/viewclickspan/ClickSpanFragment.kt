@@ -4,14 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.widget.Toast
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.R
-import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityClickspanBinding
 import com.example.myselfcustom.utils.MyLinkMovementMethod
 
-@Route(path = "/test/clickSpan")
-class ClickSpanActivity : BaseActivity<ActivityClickspanBinding>() {
+class ClickSpanFragment : BaseFragment<ActivityClickspanBinding>() {
 
 
     private var flag = false
@@ -21,7 +19,7 @@ class ClickSpanActivity : BaseActivity<ActivityClickspanBinding>() {
         initView()
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
     private fun initView() {
         binding.clickTv.text = "ashamed afbaf af"
         binding.clickTv.apply {
@@ -33,13 +31,13 @@ class ClickSpanActivity : BaseActivity<ActivityClickspanBinding>() {
 
         binding.clickContainer.setOnClickListener {
             flag = !flag
-            Toast.makeText(this, "click clickContainer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireActivity(), "click clickContainer", Toast.LENGTH_SHORT).show()
             if (flag) {
                 adjustAttr(false)
-                binding.clickContainer.setBackgroundColor(getColor(R.color.buttonBackground))
+                binding.clickContainer.setBackgroundColor(this.requireActivity().getColor(R.color.buttonBackground))
             } else {
                 adjustAttr(true)
-                binding.clickContainer.setBackgroundColor(getColor(R.color.white))
+                binding.clickContainer.setBackgroundColor(this.requireActivity().getColor(R.color.white))
             }
         }
     }
