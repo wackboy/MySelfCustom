@@ -34,6 +34,7 @@ class CoroutineViewModel : ViewModel() {
     private var _pageNum = MutableStateFlow<Int>(0)
     val pageNum: StateFlow<Int> = _pageNum
 
+    // todo 实现在repo中
     private val fetchArtiContent = CacheOnSuccess({
 
     }) {
@@ -83,7 +84,6 @@ class CoroutineViewModel : ViewModel() {
 
 
     suspend fun fetchArticleContent(): ApiResponse<Articles> {
-        fetchArtiContent.getOrAwait()
         _pageNum.value = 1
         return fetchArtiContent.getOrAwait() as ApiResponse<Articles>
     }
