@@ -2,7 +2,7 @@ package com.example.myselfcustom.sourcecodelearn.sourcerxjava
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import com.example.myselfcustom.base.BaseActivity
+import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityRxjavaLearnBinding
 import com.google.gson.annotations.SerializedName
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

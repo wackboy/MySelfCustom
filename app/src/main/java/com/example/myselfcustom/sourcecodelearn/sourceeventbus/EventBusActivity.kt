@@ -2,7 +2,7 @@ package com.example.myselfcustom.sourcecodelearn.sourceeventbus
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.myselfcustom.base.BaseActivity
+import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityEventBusBinding
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe

@@ -6,19 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.myselfcustom.arch_retrofit_coroutine.CoroutineActivity
-import com.example.myselfcustom.base.BaseActivity
-import com.example.myselfcustom.baselivedata.LiveDataDemoViewModel
+import com.example.myselfcustom.arch.CoroutineActivity
+import com.example.myselfcustom.vm.LiveDataDemoViewModel
 import com.example.myselfcustom.databinding.ActivityMainBinding
 import com.example.myselfcustom.sourcecodelearn.apt.AptActivity
 import com.example.myselfcustom.sourcecodelearn.sourceeventbus.EventBusActivity
 import com.example.myselfcustom.sourcecodelearn.sourceokhttp.OkHttpActivity
 import com.example.myselfcustom.sourcecodelearn.sourcerxjava.RxjavaLearnActivity
-import com.example.myselfcustom.viewclickspan.ClickSpanActivity
-import com.example.myselfcustom.viewlike.ThirdActivity
-import com.example.myselfcustom.viewrect.FifthActivity
-import com.example.myselfcustom.viewscalerv.SecondActivity
-import com.example.myselfcustom.viewslidecard.FourthActivity
+import com.example.myselfcustom.ui.customview.viewclickspan.ClickSpanActivity
+import com.example.myselfcustom.ui.customview.viewlike.ThirdActivity
+import com.example.myselfcustom.ui.customview.viewrect.FifthActivity
+import com.example.myselfcustom.ui.customview.viewscalerv.SecondActivity
+import com.example.myselfcustom.ui.customview.viewslidecard.FourthActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), MainRvClickListener {
 

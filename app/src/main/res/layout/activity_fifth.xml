@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewrect.FifthActivity">
+    tools:context=".ui.customview.viewrect.FifthActivity">
 
     <com.example.myselfcustom.viewrect.CustomRectAnnTextView
         android:id="@+id/custom_container"

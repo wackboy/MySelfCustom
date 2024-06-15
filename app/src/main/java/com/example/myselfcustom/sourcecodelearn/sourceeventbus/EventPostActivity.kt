@@ -1,7 +1,7 @@
 package com.example.myselfcustom.sourcecodelearn.sourceeventbus
 
 import android.os.Bundle
-import com.example.myselfcustom.base.BaseActivity
+import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityEventPostBinding
 import org.greenrobot.eventbus.EventBus
 

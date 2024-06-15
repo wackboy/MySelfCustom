@@ -4,11 +4,11 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.example.myselfcustom.retorfitutil.ApiEmptyResponse
-import com.example.myselfcustom.retorfitutil.ApiErrorResponse
-import com.example.myselfcustom.retorfitutil.ApiFailedResponse
-import com.example.myselfcustom.retorfitutil.ApiResponse
-import com.example.myselfcustom.retorfitutil.ApiSuccessResponse
+import com.example.myselfcustom.utils.retorfitutil.ApiEmptyResponse
+import com.example.myselfcustom.utils.retorfitutil.ApiErrorResponse
+import com.example.myselfcustom.utils.retorfitutil.ApiFailedResponse
+import com.example.myselfcustom.utils.retorfitutil.ApiResponse
+import com.example.myselfcustom.utils.retorfitutil.ApiSuccessResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

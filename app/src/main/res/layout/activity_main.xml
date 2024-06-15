@@ -15,14 +15,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-<!--    <com.example.myselfcustom.SlidingIndicatorBar
-        android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:barColor="@color/purple"
-        app:barHeight="16dp"
-        app:bendingHeight="64dp"
-        app:bendingRatio="0.5"
-        app:bendingDirection="1" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
