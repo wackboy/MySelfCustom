@@ -1,9 +1,12 @@
 package com.example.myselfcustom.ui.customview.viewrect
 
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.databinding.ActivityFifthBinding
+import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 
+@Route(path = SlideLeftCommon.FIFTH_FRAGMENT_PATH)
 class FifthFragment : BaseFragment<ActivityFifthBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

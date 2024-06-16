@@ -5,9 +5,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.arch.vm.CoroutineViewModel
 import com.example.myselfcustom.databinding.ActivityCoroutineBinding
+import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.drop
@@ -17,6 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 
+@Route(path = SlideLeftCommon.COROUTINE_ACTIVITY_PATH)
 class CoroutineActivity : BaseActivity<ActivityCoroutineBinding>() {
 
     private val vm by lazy {

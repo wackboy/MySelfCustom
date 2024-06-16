@@ -2,8 +2,10 @@ package com.example.myselfcustom.sourcecodelearn.sourcerxjava
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityRxjavaLearnBinding
+import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 import com.google.gson.annotations.SerializedName
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -14,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import retrofit2.http.GET
 
+@Route(path = SlideLeftCommon.RXJAVA_LEARN_ACTIVITY_PATH)
 class RxjavaLearnActivity : BaseActivity<ActivityRxjavaLearnBinding>() {
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {

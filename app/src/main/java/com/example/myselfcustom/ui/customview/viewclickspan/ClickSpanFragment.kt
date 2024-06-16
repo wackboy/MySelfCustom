@@ -4,11 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.widget.Toast
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.R
 import com.example.myselfcustom.databinding.ActivityClickspanBinding
+import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 import com.example.myselfcustom.utils.MyLinkMovementMethod
 
+@Route(path = SlideLeftCommon.CLICK_SPAN_FRAGMENT_PATH)
 class ClickSpanFragment : BaseFragment<ActivityClickspanBinding>() {
 
 

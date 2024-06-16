@@ -2,12 +2,15 @@ package com.example.myselfcustom.sourcecodelearn.sourceeventbus
 
 import android.content.Intent
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.myselfcustom.BaseActivity
 import com.example.myselfcustom.databinding.ActivityEventBusBinding
+import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
+@Route(path = SlideLeftCommon.EVENTBUS_ACTIVITY_PATH)
 class EventBusActivity : BaseActivity<ActivityEventBusBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
