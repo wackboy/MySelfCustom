@@ -1,5 +1,7 @@
 package com.example.myselfcustom.ui.slideleftfragment
 
-class SlideClickEvent (
-    val msg: String?
-)
+import com.example.myselfcustom.arch.livedatabus.LiveDataEvent
+
+interface SlideClickEvent {
+    fun clickEvent(): LiveDataEvent<String>
+}
