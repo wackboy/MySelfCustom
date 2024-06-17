@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.myselfcustom.BaseFragment
-import com.example.myselfcustom.MainRvClickListener
+import com.example.myselfcustom.CommonClickListener
 import com.example.myselfcustom.NormalAdapter
 import com.example.myselfcustom.R
 import com.example.myselfcustom.databinding.FragmentLeftSlideBinding
+import org.greenrobot.eventbus.EventBus
 
-class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), MainRvClickListener {
+class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), CommonClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,5 +43,6 @@ class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), MainRvClickL
                     ?.commit()
             }
         }
+        EventBus.getDefault().postSticky(SlideClickEvent("Slide Clicked"))
     }
 }
