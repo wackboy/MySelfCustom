@@ -3,7 +3,7 @@ package com.example.myselfcustom.sourcecodelearn.sourcerxjava
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.example.myselfcustom.BaseActivity
+import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.databinding.ActivityRxjavaLearnBinding
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon
 import com.google.gson.annotations.SerializedName
@@ -17,7 +17,7 @@ import retrofit2.create
 import retrofit2.http.GET
 
 @Route(path = SlideLeftCommon.RXJAVA_LEARN_ACTIVITY_PATH)
-class RxjavaLearnActivity : BaseActivity<ActivityRxjavaLearnBinding>() {
+class RxjavaLearnActivity : BaseFragment<ActivityRxjavaLearnBinding>() {
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

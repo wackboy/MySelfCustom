@@ -21,6 +21,9 @@
             android:name=".arch.CoroutineActivity"
             android:exported="false" />
         <activity
+            android:name=".sourcecodelearn.sourceeventbus.EventPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

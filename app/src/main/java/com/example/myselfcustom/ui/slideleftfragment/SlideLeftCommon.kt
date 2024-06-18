@@ -1,9 +1,8 @@
 package com.example.myselfcustom.ui.slideleftfragment
 
 import com.example.myselfcustom.arch.CoroutineActivity
-import com.example.myselfcustom.sourcecodelearn.apt.AptActivity
-import com.example.myselfcustom.sourcecodelearn.sourceeventbus.EventBusActivity
-import com.example.myselfcustom.sourcecodelearn.sourceokhttp.OkHttpActivity
+import com.example.myselfcustom.sourcecodelearn.apt.AptFragment
+import com.example.myselfcustom.sourcecodelearn.sourceeventbus.EventBusFragment
 import com.example.myselfcustom.sourcecodelearn.sourcerxjava.RxjavaLearnActivity
 import com.example.myselfcustom.ui.customview.viewclickspan.ClickSpanFragment
 import com.example.myselfcustom.ui.customview.viewlike.ThirdFragment
@@ -16,7 +15,6 @@ import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.COROUTINE_A
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.EVENTBUS_ACTIVITY_PATH
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.FIFTH_FRAGMENT_PATH
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.FOURTH_FRAGMENT_PATH
-import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.OKHTTP_ACTIVITY_PATH
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.RXJAVA_LEARN_ACTIVITY_PATH
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.SECOND_FRAGMENT_PATH
 import com.example.myselfcustom.ui.slideleftfragment.SlideLeftCommon.THIRD_FRAGMENT_PATH
@@ -42,10 +40,9 @@ val arrayPairInfo = listOf(
     Pair("点赞效果", ThirdFragment::class.java),
     Pair("探探划卡", FourthFragment::class.java),
     Pair("自定义文本框", FifthFragment::class.java),
-    Pair("OKHTTP", OkHttpActivity::class.java),
-    Pair("EventBus", EventBusActivity::class.java),
+    Pair("EventBus", EventBusFragment::class.java),
     Pair("Rxjava", RxjavaLearnActivity::class.java),
-    Pair("Apt", AptActivity::class.java),
+    Pair("Apt", AptFragment::class.java),
     Pair("ClickSpanConflict", ClickSpanFragment::class.java),
     Pair("协程相关", CoroutineActivity::class.java)
 )
@@ -55,10 +52,9 @@ val routePair = listOf(
     Pair(ThirdFragment::class.simpleName, THIRD_FRAGMENT_PATH),
     Pair(FourthFragment::class.simpleName, FOURTH_FRAGMENT_PATH),
     Pair(FifthFragment::class.simpleName, FIFTH_FRAGMENT_PATH),
-    Pair(OkHttpActivity::class.simpleName, OKHTTP_ACTIVITY_PATH),
-    Pair(EventBusActivity::class.simpleName, EVENTBUS_ACTIVITY_PATH),
+    Pair(EventBusFragment::class.simpleName, EVENTBUS_ACTIVITY_PATH),
     Pair(RxjavaLearnActivity::class.simpleName, RXJAVA_LEARN_ACTIVITY_PATH),
-    Pair(AptActivity::class.simpleName, APT_ACTIVITY_PATH),
+    Pair(AptFragment::class.simpleName, APT_ACTIVITY_PATH),
     Pair(ClickSpanFragment::class.simpleName, CLICK_SPAN_FRAGMENT_PATH),
     Pair(CoroutineActivity::class.simpleName, COROUTINE_ACTIVITY_PATH),
 )
