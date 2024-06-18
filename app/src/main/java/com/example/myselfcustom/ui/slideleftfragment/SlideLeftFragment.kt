@@ -9,7 +9,7 @@ import com.example.myselfcustom.BaseFragment
 import com.example.myselfcustom.CommonClickListener
 import com.example.myselfcustom.NormalAdapter
 import com.example.myselfcustom.R
-import com.example.myselfcustom.arch.livedatabus.LiveDataBus
+import com.example.myselfcustom.arch.livedatabus.EventCenterCore
 import com.example.myselfcustom.databinding.FragmentLeftSlideBinding
 
 class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), CommonClickListener {
@@ -43,7 +43,7 @@ class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), CommonClickL
                     ?.commit()
             }
         }
-        LiveDataBus.get().of(SlideClickEvent::class.java).clickEvent().post("Slide Clicked")
+        EventCenterCore.of(SlideClickEvent::class.java).clickEvent().post("Slide Clicked")
 
 //        EventBus.getDefault().postSticky(SlideClickEvent("Slide Clicked"))
     }

@@ -3,18 +3,18 @@ package com.example.myselfcustom.arch.livedatabus
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Proxy
 
-class LiveDataBus {
+object EventCenterCore {
 
-    val liveDatas by lazy { mutableMapOf<String, LiveEventObserver<*>>() }
+    val liveDatas by lazy { mutableMapOf<String, MessageEventObserver<*>>() }
 
     @Synchronized
-    private fun <T> bus(channel: String): LiveEventObserver<T> {
+    private fun <T> bus(channel: String): MessageEventObserver<T> {
         return liveDatas.getOrPut(channel) {
-            LiveDataEvent<T>(channel)
-        } as LiveEventObserver<T>
+            MessageEvent<T>(channel)
+        } as MessageEventObserver<T>
     }
 
-    private fun < T> with(channel: String, clz: Class<T>): LiveEventObserver<T> {
+    private fun < T> with(channel: String, clz: Class<T>): MessageEventObserver<T> {
         return bus(channel)
     }
 
@@ -27,18 +27,18 @@ class LiveDataBus {
             throw IllegalArgumentException("clz must be not include other interface")
         }
         return Proxy.newProxyInstance(clz.classLoader, arrayOf(clz)) { proxy, method, args ->
-            return@newProxyInstance get().with(
+            return@newProxyInstance with(
                 "${clz.canonicalName}_${method.name}",
                 (method.genericReturnType as ParameterizedType).actualTypeArguments[0].javaClass
             )
         } as E
     }
 
-    companion object {
-        private val INSTANCE by lazy { LiveDataBus() }
-
-        fun get() = INSTANCE
-
-    }
+//    companion object {
+//        private val INSTANCE by lazy { EventCenterCore() }
+//
+//        fun get() = INSTANCE
+//
+//    }
 
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 
-interface LiveEventObserver<T> {
+interface MessageEventObserver<T> {
 
     fun post(value: T)
 

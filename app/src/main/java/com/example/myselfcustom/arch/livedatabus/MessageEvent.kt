@@ -12,7 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @OptIn(DelicateCoroutinesApi::class)
-class LiveDataEvent<T>(val key: String) : LiveEventObserver<T> {
+class MessageEvent<T>(val key: String) : MessageEventObserver<T> {
 
     private val liveData by lazy { ExternalNewLiveData<T>(key) }
 

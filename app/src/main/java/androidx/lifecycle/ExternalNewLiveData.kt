@@ -1,7 +1,7 @@
 package androidx.lifecycle
 
 import androidx.annotation.MainThread
-import com.example.myselfcustom.arch.livedatabus.LiveDataBus
+import com.example.myselfcustom.arch.livedatabus.EventCenterCore
 
 internal class ExternalNewLiveData<T>(val key: String) : MutableLiveData<T>() {
 
@@ -58,7 +58,7 @@ internal class ExternalNewLiveData<T>(val key: String) : MutableLiveData<T>() {
     override fun onInactive() {
         super.onInactive()
         if (!hasObservers()) {
-            LiveDataBus.get().liveDatas.remove(key)
+            EventCenterCore.liveDatas.remove(key)
         }
     }
 

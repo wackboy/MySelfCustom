@@ -1,7 +1,7 @@
 package com.example.myselfcustom
 
 import android.os.Bundle
-import com.example.myselfcustom.arch.livedatabus.LiveDataBus
+import com.example.myselfcustom.arch.livedatabus.EventCenterCore
 import com.example.myselfcustom.databinding.ActivityMainBinding
 import com.example.myselfcustom.ui.slideleftfragment.SlideClickEvent
 
@@ -9,7 +9,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), CommonClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LiveDataBus.get().of(SlideClickEvent::class.java).clickEvent().observe(this) {
+        EventCenterCore.of(SlideClickEvent::class.java).clickEvent().observe(this) {
             binding.drawerLayout.closeDrawers()
         }
 //        EventBus.getDefault().register(this)

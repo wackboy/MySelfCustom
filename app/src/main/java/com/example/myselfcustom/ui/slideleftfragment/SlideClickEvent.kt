@@ -1,7 +1,7 @@
 package com.example.myselfcustom.ui.slideleftfragment
 
-import com.example.myselfcustom.arch.livedatabus.LiveDataEvent
+import com.example.myselfcustom.arch.livedatabus.MessageEvent
 
 interface SlideClickEvent {
-    fun clickEvent(): LiveDataEvent<String>
+    fun clickEvent(): MessageEvent<String>
 }
