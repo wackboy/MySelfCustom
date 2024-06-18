@@ -1,5 +1,6 @@
 package com.example.myselfcustom.arch.livedatabus
 
+import android.util.Log
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Proxy
 
@@ -27,6 +28,7 @@ object EventCenterCore {
             throw IllegalArgumentException("clz must be not include other interface")
         }
         return Proxy.newProxyInstance(clz.classLoader, arrayOf(clz)) { proxy, method, args ->
+            Log.d("EventCenterCore", "method: ${method.name}, array: ${arrayOf(clz).size}")
             return@newProxyInstance with(
                 "${clz.canonicalName}_${method.name}",
                 (method.genericReturnType as ParameterizedType).actualTypeArguments[0].javaClass

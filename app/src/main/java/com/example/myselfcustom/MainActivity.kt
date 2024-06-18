@@ -12,23 +12,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), CommonClickListener {
         EventCenterCore.of(SlideClickEvent::class.java).clickEvent().observe(this) {
             binding.drawerLayout.closeDrawers()
         }
-//        EventBus.getDefault().register(this)
     }
-
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    fun getSlideClickEvent(event: SlideClickEvent) {
-//        binding.drawerLayout.closeDrawers()
-//    }
 
     override fun createViewBinding() =
         ActivityMainBinding.inflate(layoutInflater)
 
     override fun onItemClick(clazz: Class<out Any>) {
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-//        EventBus.getDefault().unregister(this)
     }
 
 }
