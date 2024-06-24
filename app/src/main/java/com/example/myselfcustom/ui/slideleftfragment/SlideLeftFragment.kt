@@ -44,7 +44,5 @@ class SlideLeftFragment : BaseFragment<FragmentLeftSlideBinding>(), CommonClickL
             }
         }
         EventCenterCore.of(SlideClickEvent::class.java).clickEvent().post("Slide Clicked")
-
-//        EventBus.getDefault().postSticky(SlideClickEvent("Slide Clicked"))
     }
 }
