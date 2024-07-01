@@ -1,8 +1,5 @@
 package com.example.myselfcustom.model.meta
 
-class Article {
-}
-
 /**
  * Copyright 2024 bejson.com
  */
@@ -64,9 +61,4 @@ data class Articles(
     var pageCount: Int = 0,
     var size: Int = 0,
     var total: Int = 0,
-)
-
-data class Tag(
-    val name: String,
-    val url: String
 )
